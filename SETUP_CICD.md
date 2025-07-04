@@ -45,7 +45,7 @@ Nếu repository name của bạn không phải "portfolio", hãy cập nhật:
 
 ```bash
 # Tạo file .env.local
-echo "NEXT_PUBLIC_BASE_PATH=/YOUR_REPO_NAME" > .env.local
+echo "NEXT_PUBLIC_BASE_PATH=/portfolio-cicd" > .env.local
 ```
 
 Hoặc cập nhật trong GitHub Actions secrets:
@@ -107,7 +107,7 @@ Nếu bạn có domain riêng, cập nhật trong workflow:
 Theo dõi workflow tại:
 - GitHub repo > Actions tab
 - GitHub Pages settings để xem deployment status
-- Visit site tại: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
+- Visit site tại: `https://qucuongdev.github.io/portfolio-cicd/`
 
 ## 🔍 Troubleshooting
 
@@ -123,7 +123,7 @@ Theo dõi workflow tại:
 
 ### Site không hiển thị đúng
 - Kiểm tra `NEXT_PUBLIC_BASE_PATH` đã set đúng chưa
-- Kiểm tra URL: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
+- Kiểm tra URL: `https://qucuongdev.github.io/portfolio-cicd/`
 - Chờ vài phút để GitHub Pages cập nhật
 
 ### Dependencies issues

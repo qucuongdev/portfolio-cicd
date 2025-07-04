@@ -16,22 +16,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 8
+        
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'pnpm'
         
-    - name: Install pnpm
-      uses: pnpm/action-setup@v3
-      with:
-        version: 8
-        
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
       
     - name: Run TypeScript check
-      run: pnpm run build --dry-run || npx tsc --noEmit
+      run: npx tsc --noEmit
       
     - name: Run ESLint
       run: pnpm run lint
@@ -50,31 +50,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 8
+        
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'pnpm'
         
-    - name: Install pnpm
-      uses: pnpm/action-setup@v3
-      with:
-        version: 8
-        
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
       
     - name: Build application
       run: pnpm run build
-      
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-files
-        path: |
-          .next/
-          public/
-        retention-days: 1
 
   # Job deploy lên GitHub Pages
   deploy-github-pages:
@@ -82,20 +73,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-test
     if: github.ref == 'refs/heads/main'
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 8
+        
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'pnpm'
-        
-    - name: Install pnpm
-      uses: pnpm/action-setup@v3
-      with:
-        version: 8
         
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
@@ -105,12 +97,11 @@ jobs:
         pnpm run build
         touch out/.nojekyll
       env:
-        NEXT_PUBLIC_BASE_PATH: /portfolio
+        NEXT_PUBLIC_BASE_PATH: /portfolio-cicd
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
-        cname: your-domain.com # Thay bằng domain của bạn nếu có
-        # Nếu không có domain riêng, bỏ dòng cname này 
+        # cname: your-domain.com # Uncomment nếu bạn có domain riêng 
