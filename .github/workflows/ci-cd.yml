@@ -78,6 +78,8 @@ jobs:
 
       - name: Build application
         run: pnpm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /portfolio-cicd
 
   # Job deploy lên GitHub Pages
   deploy-github-pages:
