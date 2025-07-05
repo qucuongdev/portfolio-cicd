@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -10,7 +10,7 @@ export function CreativeHero() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     let devicePixelRatio: number;
@@ -27,7 +27,7 @@ export function CreativeHero() {
     };
 
     setCanvasDimensions();
-    window.addEventListener("resize", setCanvasDimensions);
+    window.addEventListener('resize', setCanvasDimensions);
 
     // Mouse position
     let mouseX = 0;
@@ -35,7 +35,7 @@ export function CreativeHero() {
     let targetX = 0;
     let targetY = 0;
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener('mousemove', e => {
       const rect = canvas.getBoundingClientRect();
       targetX = e.clientX - rect.left;
       targetY = e.clientY - rect.top;
@@ -97,6 +97,7 @@ export function CreativeHero() {
       }
 
       draw() {
+        if (!ctx) return;
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -113,6 +114,7 @@ export function CreativeHero() {
     function init() {
       particlesArray.length = 0;
 
+      if (!canvas) return;
       const canvasWidth = canvas.width / devicePixelRatio;
       const canvasHeight = canvas.height / devicePixelRatio;
 
@@ -166,11 +168,11 @@ export function CreativeHero() {
     animate();
 
     // Handle window resize
-    window.addEventListener("resize", init);
+    window.addEventListener('resize', init);
 
     return () => {
-      window.removeEventListener("resize", setCanvasDimensions);
-      window.removeEventListener("resize", init);
+      window.removeEventListener('resize', setCanvasDimensions);
+      window.removeEventListener('resize', init);
     };
   }, []);
 
@@ -184,7 +186,7 @@ export function CreativeHero() {
       <canvas
         ref={canvasRef}
         className="w-full h-full"
-        style={{ display: "block" }}
+        style={{ display: 'block' }}
       />
     </motion.div>
   );
