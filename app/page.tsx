@@ -23,6 +23,7 @@ import { MouseFollower } from '@/components/mouse-follower';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { SectionHeading } from '@/components/section-heading';
 import { GlassmorphicCard } from '@/components/glassmorphic-card';
+import { DebugEnv } from '@/components/debug-env';
 
 export default function Portfolio() {
   const openGithub = () => {
@@ -532,6 +533,9 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
+
+      {/* Debug Environment Variables */}
+      <DebugEnv />
     </div>
   );
 }

@@ -76,10 +76,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build application
-        run: pnpm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /portfolio-cicd
+          - name: Build application
+      run: pnpm run build
+      env:
+        NEXT_PUBLIC_BASE_PATH: /portfolio-cicd
+        NEXT_PUBLIC_SHOW_DEBUG: true
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
