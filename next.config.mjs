@@ -6,14 +6,14 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // GitHub Pages deployment configuration
+  images: {
+    unoptimized: true,
+  },
+  // Always configure for GitHub Pages deployment
   output: 'export',
   trailingSlash: true,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
-  images: {
-    unoptimized: true, // Required for static export
-  },
 };
 
 export default nextConfig;
