@@ -91,6 +91,13 @@ export default function Portfolio() {
               >
                 Resume
               </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="border-yellow-600 text-yellow-300 hover:text-white hover:border-yellow-400"
+              >
+                <Link href="/about">🧪 Test Images</Link>
+              </Button>
             </div>
             <div className="flex gap-4 pt-4">
               <Link
