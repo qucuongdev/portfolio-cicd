@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
-import { useMobile } from "@/hooks/use-mobile";
+import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,16 +22,16 @@ export function FloatingNav() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = () => {
@@ -41,14 +41,14 @@ export function FloatingNav() {
   };
 
   const openResume = () => {
-    window.open("/BuiQuocCuong_FrontEndDeveloper_CV.pdf", "_blank");
+    window.open('/BuiQuocCuong_FrontEndDeveloper_CV.pdf', '_blank');
   };
 
   return (
     <>
       <motion.div
         className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 ${
-          isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+          isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
@@ -86,7 +86,7 @@ export function FloatingNav() {
                 </span>
                 <span className="text-white">Bui</span>
               </Link>
-              {navItems.map((item) => (
+              {navItems.map(item => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -112,14 +112,14 @@ export function FloatingNav() {
       {isMobile && (
         <motion.div
           className={`fixed inset-0 z-40 bg-black/90 backdrop-blur-md ${
-            isOpen ? "block" : "hidden"
+            isOpen ? 'block' : 'hidden'
           }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: isOpen ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           <div className="flex flex-col items-center justify-center h-full">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <Link
                 key={item.name}
                 href={item.href}

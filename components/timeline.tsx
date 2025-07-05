@@ -1,53 +1,53 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useMobile } from "@/hooks/use-mobile";
+import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const experiences = [
   {
-    title: "Frontend Developer",
-    company: "Lancs Networks",
-    period: "10/2024 - Present",
+    title: 'Frontend Developer',
+    company: 'Lancs Networks',
+    period: '10/2024 - Present',
     description:
-      "Led the frontend development team in building an XDR and SIEM solution based on OpenSearch and Wazuh. Implemented new features, enhanced performance, and mentored junior developers.",
+      'Led the frontend development team in building an XDR and SIEM solution based on OpenSearch and Wazuh. Implemented new features, enhanced performance, and mentored junior developers.',
   },
   {
-    title: "Frontend Developer",
-    company: "TMA Solutions",
-    period: "08/2021 - 10/2024",
+    title: 'Frontend Developer',
+    company: 'TMA Solutions',
+    period: '08/2021 - 10/2024',
     description:
-      "Developed responsive web applications using React and TypeScript. Collaborated with designers and backend engineers to deliver high-quality products.",
+      'Developed responsive web applications using React and TypeScript. Collaborated with designers and backend engineers to deliver high-quality products.',
   },
   {
-    title: "Intern",
-    company: "Anh Quan Tech",
-    period: "06/2021 - 08/2021",
+    title: 'Intern',
+    company: 'Anh Quan Tech',
+    period: '06/2021 - 08/2021',
     description:
-      "Assisted in developing web applications and learned modern web development practices.",
+      'Assisted in developing web applications and learned modern web development practices.',
   },
 ];
 
 export function Timeline() {
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
 
   return (
     <div
       className={`space-y-12 relative ${
         !isMobile
-          ? "before:absolute before:inset-0 before:left-1/2 before:ml-0 before:-translate-x-px before:border-l-2 before:border-zinc-700 before:h-full before:z-0"
-          : ""
+          ? 'before:absolute before:inset-0 before:left-1/2 before:ml-0 before:-translate-x-px before:border-l-2 before:border-zinc-700 before:h-full before:z-0'
+          : ''
       }`}
     >
       {experiences.map((experience, index) => (
         <div
           key={index}
           className={`relative z-10 flex items-center ${
-            index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+            index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
           }`}
         >
           <motion.div
             className={`w-full md:w-1/2 ${
-              index % 2 === 0 ? "md:pl-10" : "md:pr-10"
+              index % 2 === 0 ? 'md:pl-10' : 'md:pr-10'
             }`}
             initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
