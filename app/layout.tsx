@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Portfolio - CuongBui",
-  description: "Created by CuongBui",
-  generator: "CuongBui",
+  title: 'Portfolio - CuongBui',
+  description: 'Created by CuongBui',
+  generator: 'CuongBui',
   icons: {
-    icon: "/briefcase-business.svg",
+    icon: '/briefcase-business.svg',
   },
 };
 

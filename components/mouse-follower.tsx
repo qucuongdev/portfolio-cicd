@@ -1,30 +1,30 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export function MouseFollower() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isVisible, setIsVisible] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-      setIsVisible(true)
-    }
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      setIsVisible(true);
+    };
 
     const handleMouseLeave = () => {
-      setIsVisible(false)
-    }
+      setIsVisible(false);
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    document.body.addEventListener("mouseleave", handleMouseLeave)
+    window.addEventListener('mousemove', handleMouseMove);
+    document.body.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      document.body.removeEventListener("mouseleave", handleMouseLeave)
-    }
-  }, [])
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.body.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
 
   return (
     <>
@@ -35,7 +35,7 @@ export function MouseFollower() {
           y: mousePosition.y - 16,
           opacity: isVisible ? 1 : 0,
         }}
-        transition={{ type: "spring", damping: 20, stiffness: 300, mass: 0.5 }}
+        transition={{ type: 'spring', damping: 20, stiffness: 300, mass: 0.5 }}
       >
         <div className="w-full h-full rounded-full bg-white opacity-50"></div>
       </motion.div>
@@ -49,5 +49,5 @@ export function MouseFollower() {
         }}
       />
     </>
-  )
+  );
 }

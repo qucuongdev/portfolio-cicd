@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 import {
   ArrowRight,
   Github,
@@ -9,32 +9,32 @@ import {
   Smartphone,
   Twitter,
   FileText,
-} from "lucide-react";
+} from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
-import { ProjectCard } from "@/components/project-card";
-import { SkillBadge } from "@/components/skill-badge";
-import { Timeline } from "@/components/timeline";
-import { ContactForm } from "@/components/contact-form";
-import { CreativeHero } from "@/components/creative-hero";
-import { FloatingNav } from "@/components/floating-nav";
-import { MouseFollower } from "@/components/mouse-follower";
-import { ScrollProgress } from "@/components/scroll-progress";
-import { SectionHeading } from "@/components/section-heading";
-import { GlassmorphicCard } from "@/components/glassmorphic-card";
+import { Button } from '@/components/ui/button';
+import { ProjectCard } from '@/components/project-card';
+import { SkillBadge } from '@/components/skill-badge';
+import { Timeline } from '@/components/timeline';
+import { ContactForm } from '@/components/contact-form';
+import { CreativeHero } from '@/components/creative-hero';
+import { FloatingNav } from '@/components/floating-nav';
+import { MouseFollower } from '@/components/mouse-follower';
+import { ScrollProgress } from '@/components/scroll-progress';
+import { SectionHeading } from '@/components/section-heading';
+import { GlassmorphicCard } from '@/components/glassmorphic-card';
 
 export default function Portfolio() {
   const openGithub = () => {
-    window.open("https://github.com/qucuongdev", "_blank");
+    window.open('https://github.com/qucuongdev', '_blank');
   };
   const openLinkedin = () => {
-    window.open("https://www.linkedin.com/in/qucuongdev/", "_blank");
+    window.open('https://www.linkedin.com/in/qucuongdev/', '_blank');
   };
   const openEmail = () => {
-    window.location.href = "mailto:qucuong.dev@gmail.com";
+    window.location.href = 'mailto:qucuong.dev@gmail.com';
   };
   const openResume = () => {
-    window.open("/BuiQuocCuong_FrontEndDeveloper_CV.pdf", "_blank");
+    window.open('/BuiQuocCuong_FrontEndDeveloper_CV.pdf', '_blank');
   };
 
   return (
@@ -77,7 +77,7 @@ export default function Portfolio() {
                 className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0"
               >
                 <span className="relative z-10 flex items-center">
-                  View Projects{" "}
+                  View Projects{' '}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -298,7 +298,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Portfolio Website"
               description="This portfolio website built with Next.js and Tailwind CSS."
-              tags={["Next.js", "Tailwind CSS", "TypeScript", "Three.js"]}
+              tags={['Next.js', 'Tailwind CSS', 'TypeScript', 'Three.js']}
               image="/portfolio.jpg?height=400&width=600"
               demoUrl="https://portfolio-qucuongdev.vercel.app/"
               repoUrl="https://github.com/qucuongdev/portfolio"
@@ -306,7 +306,7 @@ export default function Portfolio() {
             <ProjectCard
               title="SIEM Dashboard"
               description="A demo SIEM dashboard showcasing alerts, basic analytics, and interactive chart components.."
-              tags={["Next.js", "Chart.js", "Tailwind CSS", "Shadcn UI"]}
+              tags={['Next.js', 'Chart.js', 'Tailwind CSS', 'Shadcn UI']}
               image="/siem.jpg?height=400&width=600"
               demoUrl="https://siem-one.vercel.app/"
               repoUrl="https://github.com"
@@ -314,7 +314,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Bicycle E-commerce Platform"
               description="A full-stack e-commerce platform built with Next.js, Stripe, and Prisma."
-              tags={["JavaScript", "HTML", "CSS"]}
+              tags={['JavaScript', 'HTML', 'CSS']}
               image="/bicycle.jpg?height=400&width=600"
               demoUrl="https://bicyle-ecommerce.vercel.app/"
               repoUrl="https://github.com/qucuongdev/bicyle-ecommerce"
@@ -322,7 +322,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Movie Homepage"
               description="A collaborative task management application with real-time updates."
-              tags={["JavaScript", "HTML", "CSS"]}
+              tags={['JavaScript', 'HTML', 'CSS']}
               image="/movie.jpg?height=400&width=600"
               demoUrl="https://movie-homepage-pied.vercel.app/"
               repoUrl="https://github.com/qucuongdev/movie-homepage"
@@ -330,7 +330,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Pizza Website"
               description="An AI-powered content generation tool using OpenAI's GPT models."
-              tags={["React.js", "CSS", "Tailwind CSS"]}
+              tags={['React.js', 'CSS', 'Tailwind CSS']}
               image="/pizza.jpg?height=400&width=600"
               demoUrl="https://react-pizza-website-v1-eight.vercel.app/"
               repoUrl="https://github.com/qucuongdev/react-pizza-website-v1"
@@ -338,7 +338,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Crypto Tracker"
               description="A mobile-first fitness tracking application with data visualization."
-              tags={["React.js", "CSS", "Tailwind CSS"]}
+              tags={['React.js', 'CSS', 'Tailwind CSS']}
               image="/crypto.jpg?height=400&width=600"
               demoUrl="https://react-api-crpyto-tracker-v1.vercel.app/"
               repoUrl="https://github.com/qucuongdev/react-api-crpyto-tracker-v1"

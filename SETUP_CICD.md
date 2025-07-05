@@ -30,6 +30,7 @@ git push -u origin main
 Vào **Settings > Secrets and variables > Actions** trong GitHub repo của bạn:
 
 #### Cho GitHub Pages:
+
 - `GITHUB_TOKEN`: Tự động có sẵn, không cần setup thêm
 
 ### 3. Cấu hình GitHub Pages
@@ -49,6 +50,7 @@ echo "NEXT_PUBLIC_BASE_PATH=/portfolio-cicd" > .env.local
 ```
 
 Hoặc cập nhật trong GitHub Actions secrets:
+
 - Thêm `NEXT_PUBLIC_BASE_PATH` với giá trị `/YOUR_REPO_NAME`
 
 ## 📁 Cấu trúc file được tạo
@@ -68,25 +70,30 @@ env.example             # Environment variables template
 ## 🔧 Tùy chỉnh Workflow
 
 ### Thêm test commands
+
 ```yaml
 - name: Run tests
   run: pnpm test
 ```
 
 ### Thêm dependency security check
+
 ```yaml
 - name: Audit dependencies
   run: pnpm audit
 ```
 
 ### Thêm performance budget
+
 ```yaml
 - name: Lighthouse CI
   run: npx lhci autorun
 ```
 
 ### Thêm custom domain
+
 Nếu bạn có domain riêng, cập nhật trong workflow:
+
 ```yaml
 - name: Deploy to GitHub Pages
   uses: peaceiris/actions-gh-pages@v3
@@ -105,6 +112,7 @@ Nếu bạn có domain riêng, cập nhật trong workflow:
 ## 📊 Monitoring
 
 Theo dõi workflow tại:
+
 - GitHub repo > Actions tab
 - GitHub Pages settings để xem deployment status
 - Visit site tại: `https://qucuongdev.github.io/portfolio-cicd/`
@@ -112,27 +120,32 @@ Theo dõi workflow tại:
 ## 🔍 Troubleshooting
 
 ### Build fails
+
 - Kiểm tra TypeScript errors: `pnpm run build`
 - Kiểm tra ESLint errors: `pnpm run lint`
 - Chạy local: `pnpm run dev`
 
 ### Deploy fails
+
 - Kiểm tra GitHub Pages settings đã enable chưa
 - Kiểm tra branch `gh-pages` đã được tạo chưa
 - Xem logs trong GitHub Actions
 
 ### Site không hiển thị đúng
+
 - Kiểm tra `NEXT_PUBLIC_BASE_PATH` đã set đúng chưa
 - Kiểm tra URL: `https://qucuongdev.github.io/portfolio-cicd/`
 - Chờ vài phút để GitHub Pages cập nhật
 
 ### Dependencies issues
+
 - Xóa `node_modules` và `pnpm-lock.yaml`
 - Chạy `pnpm install` lại
 
 ## 📞 Hỗ trợ
 
 Nếu gặp vấn đề, check:
+
 1. GitHub Actions logs
 2. GitHub Pages settings
 3. Browser console khi test local
