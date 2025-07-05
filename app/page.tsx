@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   Github,
@@ -22,7 +23,6 @@ import { MouseFollower } from '@/components/mouse-follower';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { SectionHeading } from '@/components/section-heading';
 import { GlassmorphicCard } from '@/components/glassmorphic-card';
-import { getAssetPath } from '@/lib/assets';
 
 export default function Portfolio() {
   const openGithub = () => {
@@ -35,10 +35,7 @@ export default function Portfolio() {
     window.location.href = 'mailto:qucuong.dev@gmail.com';
   };
   const openResume = () => {
-    window.open(
-      getAssetPath('/BuiQuocCuong_FrontEndDeveloper_CV.pdf'),
-      '_blank'
-    );
+    window.open('/BuiQuocCuong_FrontEndDeveloper_CV.pdf', '_blank');
   };
 
   return (
@@ -178,10 +175,11 @@ export default function Portfolio() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
-                <img
-                  src={getAssetPath('/avt.jpg')}
+                <Image
+                  src="/avt.jpg"
                   alt="Bui Quoc Cuong"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
@@ -303,7 +301,7 @@ export default function Portfolio() {
               title="Portfolio Website"
               description="This portfolio website built with Next.js and Tailwind CSS."
               tags={['Next.js', 'Tailwind CSS', 'TypeScript', 'Three.js']}
-              image={getAssetPath('/portfolio.jpg')}
+              image="/portfolio.jpg"
               demoUrl="https://portfolio-qucuongdev.vercel.app/"
               repoUrl="https://github.com/qucuongdev/portfolio"
             />
@@ -311,7 +309,7 @@ export default function Portfolio() {
               title="SIEM Dashboard"
               description="A demo SIEM dashboard showcasing alerts, basic analytics, and interactive chart components.."
               tags={['Next.js', 'Chart.js', 'Tailwind CSS', 'Shadcn UI']}
-              image={getAssetPath('/siem.jpg')}
+              image="/siem.jpg"
               demoUrl="https://siem-one.vercel.app/"
               repoUrl="https://github.com"
             />
@@ -319,7 +317,7 @@ export default function Portfolio() {
               title="Bicycle E-commerce Platform"
               description="A full-stack e-commerce platform built with Next.js, Stripe, and Prisma."
               tags={['JavaScript', 'HTML', 'CSS']}
-              image={getAssetPath('/bicycle.jpg')}
+              image="/bicycle.jpg"
               demoUrl="https://bicyle-ecommerce.vercel.app/"
               repoUrl="https://github.com/qucuongdev/bicyle-ecommerce"
             />
@@ -327,7 +325,7 @@ export default function Portfolio() {
               title="Movie Homepage"
               description="A collaborative task management application with real-time updates."
               tags={['JavaScript', 'HTML', 'CSS']}
-              image={getAssetPath('/movie.jpg')}
+              image="/movie.jpg"
               demoUrl="https://movie-homepage-pied.vercel.app/"
               repoUrl="https://github.com/qucuongdev/movie-homepage"
             />
@@ -335,7 +333,7 @@ export default function Portfolio() {
               title="Pizza Website"
               description="An AI-powered content generation tool using OpenAI's GPT models."
               tags={['React.js', 'CSS', 'Tailwind CSS']}
-              image={getAssetPath('/pizza.jpg')}
+              image="/pizza.jpg"
               demoUrl="https://react-pizza-website-v1-eight.vercel.app/"
               repoUrl="https://github.com/qucuongdev/react-pizza-website-v1"
             />
@@ -343,7 +341,7 @@ export default function Portfolio() {
               title="Crypto Tracker"
               description="A mobile-first fitness tracking application with data visualization."
               tags={['React.js', 'CSS', 'Tailwind CSS']}
-              image={getAssetPath('/crypto.jpg')}
+              image="/crypto.jpg"
               demoUrl="https://react-api-crpyto-tracker-v1.vercel.app/"
               repoUrl="https://github.com/qucuongdev/react-api-crpyto-tracker-v1"
             />
