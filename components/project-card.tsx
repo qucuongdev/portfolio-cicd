@@ -47,7 +47,7 @@ export function ProjectCard({
           <div className="relative overflow-hidden h-48">
             <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
             <Image
-              src={image || '/placeholder.svg'}
+              src={image?.replace(/^\//, '') || 'placeholder.svg'}
               alt={title}
               fill
               className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}

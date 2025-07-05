@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Created by CuongBui',
   generator: 'CuongBui',
   icons: {
-    icon: '/briefcase-business.svg',
+    icon: 'briefcase-business.svg',
   },
 };
 
