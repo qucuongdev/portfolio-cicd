@@ -81,6 +81,13 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /portfolio-cicd
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: ./out
+          retention-days: 1
+
   # Job deploy lên GitHub Pages
   deploy-github-pages:
     name: Deploy to GitHub Pages
@@ -99,29 +106,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
-          version: 8
+          name: nextjs-build
+          path: ./out
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Build for GitHub Pages
-        run: |
-          pnpm run build
-          touch out/.nojekyll
-        env:
-          NEXT_PUBLIC_BASE_PATH: /portfolio-cicd
+      - name: Add .nojekyll for GitHub Pages
+        run: touch ./out/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
